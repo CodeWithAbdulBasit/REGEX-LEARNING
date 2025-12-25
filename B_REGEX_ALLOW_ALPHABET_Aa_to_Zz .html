@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REGEX ALLOW ALPHABET A to Z / a to z - STEP 03</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        .is-Invalid{
+            border: 2px solid red;
+            background-color: #ffb1b14d;
+        }
+        .is-Valid{
+            border: 2px solid green;
+        }
+        .error-message{
+            color: red;
+            background-color: #ffb1b1;
+            padding: 3px 0px 3px 0px;
+            font-weight: 900;
+        }
+    </style>
+</head>
+<body>
+    <h1><b>REGEX ALLOW ALPHABET A to Z / a to z - STEP 03</b></h1>
+    <div class="container mt-5">
+        <form id="myForm" novalidate>
+            <div class="form-group">
+                <label for="emailInput">Name <small>(TEXT ONLY)</small></label>
+                <input type="text" class="form-control" id="nameInput" placeholder="Enter name">
+                <br />
+                <span id="nameError" class="error-message"></span>
+            </div>
+            <br />
+            <button type="submit" class="btn btn-primary" id="submitBtn">Submit</button>
+        </form>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script>
+        //----------------------------------------------------------------
+        LiveValidate({
+            input: document.getElementById("nameInput"),
+            regex: /^[A-Za-z]+$/i,
+            error: document.getElementById("nameError"),
+            message: "Alphabet allow only."
+        });
+        //----------------------------------------------------------------
+        //----------------------------------------------------------------
+        function LiveValidate({input, regex, error, message}){
+            input.addEventListener("input", () => {
+                if(!regex.test(input.value))
+                {
+                    error.innerText = message,
+                    input.classList.add("is-Invalid"),
+                    input.classList.remove("is-Valid")
+                }
+                else
+                {
+                    error.innerText = "",
+                    input.classList.remove("is-Invalid"),
+                    input.classList.add("is-Valid")
+                }
+            });
+        }
+        //----------------------------------------------------------------
+    </script>
+</body>
+</html>
