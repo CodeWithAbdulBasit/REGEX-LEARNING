@@ -74,6 +74,22 @@
             });
         }
         //----------------------------------------------------------------
+        //----------------------------------------------------------------
+        document.getElementById("myForm").addEventListener("submit", function(e){
+            e.preventDefault();
+            const input = document.getElementById("IPInput");
+            const error = document.getElementById("IPError");
+            input.dispatchEvent(new Event("input"));
+            if(input.classList.contains("is-Invalid") || input.value.trim() === ""){
+                error.innerText = validationMessage.IPv4.message;
+                input.classList.add("is-Invalid");
+                input.classList.remove("is-Valid");
+                input.focus();
+                return;
+            }
+            alert("FORM SUBMIT SUCCESSFULLY!");
+        });
+        //----------------------------------------------------------------
     </script>
 </body>
 </html>
