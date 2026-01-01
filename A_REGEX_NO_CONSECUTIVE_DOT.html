@@ -84,8 +84,8 @@
         //----------------------------------------------------------------
         document.getElementById("myForm").addEventListener("submit", function(e){
             e.preventDefault();
-            const input = document.getElementById("urlInput");
-            const error = document.getElementById("urlError");
+            const input = document.getElementById("emailInput");
+            const error = document.getElementById("emailError");
             input.dispatchEvent(new Event("input"));
             if(input.classList.contains("is-Invalid") || input.value.trim() === ""){
                 error.innerText = validationMessage.url.message;
