@@ -41,8 +41,8 @@
         //----------------------------------------------------------------
         const validationMessage = {
            Email: {
-                Emailmsg: "Email address is invalid.",
-                Consecutivemsg: "Please remove consecutive dots (..) from the email."
+                EmailMsg: "Email address is invalid.",
+                ConsecutiveMsg: "Please remove consecutive dots (..) from the email."
             }
         };
         //----------------------------------------------------------------
@@ -62,12 +62,12 @@
             input.addEventListener("input", () => {
                 if(type === "Email"){
                     if (consecutiveDotRegex.test(input.value)) {
-                        error.innerText = message.Consecutivemsg;
+                        error.innerText = message.ConsecutiveMsg;
                         input.classList.add("is-Invalid");
                         input.classList.remove("is-Valid");
                     }
                     else if (!emailRegex.test(input.value)) {
-                        error.innerText = message.Emailmsg;
+                        error.innerText = message.EmailMsg;
                         input.classList.add("is-Invalid");
                         input.classList.remove("is-Valid");
                     }
